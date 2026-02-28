@@ -1,0 +1,9 @@
+<div class="weather-card" [class.main]="isMain" [class.small]="!isMain">
+  @if (isMain) {
+    <h2>{{ day.datetime }}</h2>
+  }
+  <div class="weather-icon">{{ day.conditions }}</div>
+  <h1 class="temp">{{ day.temp }}°</h1>
+  <p>Min: {{ day.tempmin }}° | Max: {{ day.tempmax }}°</p>
+  <p>Humidity: {{ day.humidity }}%</p>
+</div>

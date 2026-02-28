@@ -1,10 +1,38 @@
 <div class="container">
 
-    <div class="upper-details">
+  <!-- TOP SECTION -->
+  <div class="top-section">
 
+    <!-- Main Weather -->
+    @if (response && response.days.length > 0) {
+      <div class="main-card">
+        <app-weather-card [day]="response.days[0]" [isMain]="true" />
+      </div>
+    }
 
+    <!-- Filters -->
+    <div class="filter-card">
+      <input type="text" placeholder="Cidade" [(ngModel)]="InputCity">
+      <input type="text" placeholder="Estado" [(ngModel)]="InputState">
+      <input type="text" placeholder="País" [(ngModel)]="InputCountry">
+      <input type="date" [(ngModel)]="inputInitialDate">
+      <input type="date" [(ngModel)]="inputFinalDate">
+      <button (click)="getWeather()">Buscar</button>
     </div>
 
-    <div class="lower-details"></div>
+  </div>
+
+  <!-- FORECAST SECTION -->
+  @if (response && response.days.length > 1) {
+    <div class="forecast-section">
+      <h3>Demais datas</h3>
+
+      <div class="forecast-list">
+        @for (day of response.days.slice(1); track day.datetime) {
+          <app-weather-card [day]="day" />
+        }
+      </div>
+    </div>
+  }
 
 </div>

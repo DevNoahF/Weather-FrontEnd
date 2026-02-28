@@ -1,0 +1,74 @@
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.top-section {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 20px;
+}
+
+.main-card {
+  border: 2px solid #ccc;
+  border-radius: 15px;
+  padding: 20px;
+}
+
+.filter-card {
+  border: 2px solid #ccc;
+  border-radius: 15px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.filter-card input,
+.filter-card button {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #aaa;
+}
+
+.filter-card button {
+  cursor: pointer;
+  background: #4CAF50;
+  color: white;
+  border: none;
+}
+
+.weather-card {
+  text-align: center;
+  border: 2px solid #ddd;
+  border-radius: 15px;
+  padding: 20px;
+  margin-top: 15px;
+}
+
+.weather-card.main {
+  font-size: 1.2rem;
+}
+
+.weather-icon {
+  font-size: 60px;
+}
+
+.forecast-section {
+  margin-top: 40px;
+  border: 2px solid #ccc;
+  border-radius: 15px;
+  padding: 20px;
+}
+
+.forecast-list {
+  display: flex;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.weather-card.small {
+  flex: 1;
+}

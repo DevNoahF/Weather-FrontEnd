@@ -11,7 +11,7 @@ import { weatherRequest } from '../models/weatherRequest';
 })
 export class weatherService{
     // mudar url
-    private readonly API_URL = 'http://localhost:8080/' ;
+    private readonly API_URL = 'http://localhost:8080/weather' ;
 
     constructor(private http: HttpClient) {}
 
@@ -22,6 +22,6 @@ export class weatherService{
             .set('country', request.country)
             .set('initialDate', request.initialDate.toString())
             .set('finalDate',request.finalDate.toString());
-        return this.http.get<weatherResponse>(`${this.API_URL}`, { params });
+        return this.http.post<weatherResponse>(`${this.API_URL}`, { params });
     }
 }
