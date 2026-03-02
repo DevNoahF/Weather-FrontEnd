@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core'
-import { HttpClient, HttpParams } from '@angular/common/http'
+import { HttpClient } from '@angular/common/http'
 import { Observable } from 'rxjs'
 import { weatherResponse } from '../models/weatherResponse';
 import { weatherRequest } from '../models/weatherRequest';
@@ -16,12 +16,16 @@ export class weatherService{
     constructor(private http: HttpClient) {}
 
     getWeather(request: weatherRequest): Observable<weatherResponse> {
-        const params = new HttpParams()
-            .set('city', request.city)
-            .set('state', request.state)
-            .set('country', request.country)
-            .set('initialDate', request.initialDate.toString())
-            .set('finalDate',request.finalDate.toString());
-        return this.http.post<weatherResponse>(`${this.API_URL}`, { params });
+        const initDate = new Date(request.initDate);
+        const finalDate = new Date(request.finalDate);
+        
+        const body = {
+            city: request.city,
+            state: request.state,
+            country: request.country,
+            initDate: initDate.toISOString().split('T')[0],
+            finalDate: finalDate.toISOString().split('T')[0]
+        };
+        return this.http.post<weatherResponse>(`${this.API_URL}`, body);
     }
 }
