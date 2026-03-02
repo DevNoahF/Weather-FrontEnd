@@ -2,23 +2,26 @@ import { Component } from '@angular/core';
 import { weatherResponse } from '../../../../core/models/weatherResponse';
 import { weatherService } from '../../../../core/services/weatherService';
 import { FormsModule } from '@angular/forms';
-import { WeatherCardComponent } from '../../../../shared/components/weather-card/weather-card.component';
+import { States } from './weather-states.enum';
 
 @Component({
   selector: 'app-weather',
-  imports: [FormsModule, WeatherCardComponent],
+  imports: [FormsModule],
   templateUrl: './weather.component.html',
   styleUrl: './weather.component.css',
 })
 export class WeatherComponent {
   InputCity: string = '';
-  InputState: string = '';
+  InputState: string = 'AC';
   InputCountry: string = '';
-  inputInitialDate: Date = new Date();
-  inputFinalDate: Date = new Date();
+  inputInitialDate: string = new Date().toISOString().split('T')[0];
+  inputFinalDate: string = new Date().toISOString().split('T')[0];
+ 
+  states = Object.keys(States);
+  statesEnum: Record<string, string> = States;
 
 
-  // Union Type -> A variavel pode guardar um objeto do tipo WeatherResponse ou pode estar vazia
+  // Union Type( | null=null) -> A variavel pode guardar um objeto do tipo WeatherResponse ou pode estar vazia
   response: weatherResponse | null = null;
   loading: boolean = false;
   errorMessage: string = '';
@@ -31,9 +34,9 @@ export class WeatherComponent {
 
     const search = {
       city: this.InputCity,
-      state: this.InputState,
+      state: this.InputState as States,
       country: this.InputCountry,
-      initialDate: this.inputInitialDate,
+      initDate: this.inputInitialDate,
       finalDate: this.inputFinalDate
     };
 

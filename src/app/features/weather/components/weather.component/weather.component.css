@@ -27,6 +27,7 @@
 }
 
 .filter-card input,
+.filter-card select,
 .filter-card button {
   padding: 10px;
   border-radius: 8px;
@@ -71,4 +72,77 @@
 
 .weather-card.small {
   flex: 1;
+}
+
+/* Loading and Error Cards */
+.loading-card,
+.error-card {
+  text-align: center;
+  padding: 20px;
+  margin-top: 20px;
+  border-radius: 15px;
+  border: 2px solid #ccc;
+}
+
+.error-card {
+  border-color: #f44336;
+  background-color: #ffebee;
+  color: #c62828;
+}
+
+/* Result Section */
+.result-section {
+  margin-top: 30px;
+}
+
+.result-section h2 {
+  margin-bottom: 10px;
+}
+
+.result-section .address {
+  color: #666;
+  margin-bottom: 20px;
+}
+
+.weather-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.weather-card .condition {
+  font-size: 1.1rem;
+  color: #555;
+  margin: 10px 0;
+}
+
+.weather-card .temp-info {
+  margin: 15px 0;
+}
+
+.weather-card .temp-current {
+  font-size: 2rem;
+  font-weight: bold;
+  display: block;
+}
+
+.weather-card .temp-range {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 5px;
+  font-size: 0.9rem;
+}
+
+.weather-card .temp-max {
+  color: #e53935;
+}
+
+.weather-card .temp-min {
+  color: #1e88e5;
+}
+
+.weather-card .humidity {
+  color: #666;
+  margin-top: 10px;
 }
