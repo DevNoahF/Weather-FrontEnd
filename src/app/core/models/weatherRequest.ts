@@ -1,8 +1,10 @@
+import { States } from "../../features/weather/components/weather.component/weather-states.enum";
+
 export interface weatherRequest {
     city: string;
-    state: string;
+    state: States;
     country: string;
-    initialDate: Date;
-    finalDate: Date;
+    initDate: Date | string;
+    finalDate: Date | string;
 }
     
