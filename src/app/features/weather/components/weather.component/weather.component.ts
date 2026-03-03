@@ -3,17 +3,20 @@ import { weatherResponse } from '../../../../core/models/weatherResponse';
 import { weatherService } from '../../../../core/services/weatherService';
 import { FormsModule } from '@angular/forms';
 import { States } from './weather-states.enum';
+import { LoadingCardComponent } from '../loading-card.components/loading-card.components';
+import { ErrorCardComponent } from '../error-card.component/error-card.component';
+import { ForecastCardComponent } from '../forecast-card.components/forecast-card.components';
 
 @Component({
   selector: 'app-weather',
-  imports: [FormsModule],
+  imports: [FormsModule, LoadingCardComponent, ErrorCardComponent, ForecastCardComponent],
   templateUrl: './weather.component.html',
   styleUrl: './weather.component.css',
 })
 export class WeatherComponent {
   InputCity: string = '';
   InputState: string = 'AC';
-  InputCountry: string = '';
+  InputCountry: string = 'BR';
   inputInitialDate: string = new Date().toISOString().split('T')[0];
   inputFinalDate: string = new Date().toISOString().split('T')[0];
  
@@ -30,7 +33,6 @@ export class WeatherComponent {
 
   getWeather(){
     this.loading = true;
-    this.errorMessage='';
 
     const search = {
       city: this.InputCity,
