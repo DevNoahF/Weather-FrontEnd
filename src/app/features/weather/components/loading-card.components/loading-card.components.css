@@ -1,0 +1,19 @@
+.loading-card {
+  text-align: center;
+  padding: 20px;
+  margin-top: 20px;
+  border-radius: 15px;
+  border: 2px solid #ccc;
+}
+
+.loading-card p {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.1rem;
+}
+
+.loading-card img {
+  width: 60px;
+  height: 60px;
+}
