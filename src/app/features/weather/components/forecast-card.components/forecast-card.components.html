@@ -1,1 +1,23 @@
-<p>weather-card.components works!</p>
+@if (response() && !loading()) {
+  <div class="result-section">
+    <h2>Resultado</h2>
+    <p class="address">{{ response()!.addres }} - {{ response()!.timezone }}</p>
+
+    <div class="weather-cards">
+      @for (day of response()!.days; track day.datetime) {
+        <div class="weather-card">
+          <h3>{{ day.datetime }}</h3>
+          <p class="condition">{{ day.conditions }}</p>
+          <div class="temp-info">
+            <span class="temp-current">{{ day.temp }}°C</span>
+            <div class="temp-range">
+              <span class="temp-max">↑ {{ day.tempmax }}°C</span>
+              <span class="temp-min">↓ {{ day.tempmin }}°C</span>
+            </div>
+          </div>
+          <p class="humidity">Umidade: {{ day.humidity }}%</p>
+        </div>
+      }
+    </div>
+  </div>
+}
