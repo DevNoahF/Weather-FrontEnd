@@ -6,6 +6,7 @@ import { States } from './weather-states.enum';
 import { LoadingCardComponent } from '../loading-card.components/loading-card.components';
 import { ErrorCardComponent } from '../error-card.component/error-card.component';
 import { ForecastCardComponent } from '../forecast-card.components/forecast-card.components';
+import { finalize } from 'rxjs';
 
 @Component({
   selector: 'app-weather',
@@ -33,6 +34,8 @@ export class WeatherComponent {
 
   getWeather(){
     this.loading = true;
+    this.errorMessage = '';
+    this.response = null;
 
     const search = {
       city: this.InputCity,
@@ -42,14 +45,15 @@ export class WeatherComponent {
       finalDate: this.inputFinalDate
     };
 
-    this.weatherService.getWeather(search).subscribe({
+    this.weatherService.getWeather(search).pipe(
+      finalize(() => this.loading = false)
+    ).subscribe({
       next: (res) => {
         this.response = res;
-        this.loading = false;
       },
       error: (err) => {
+        console.error('Erro na requisição:', err);
         this.errorMessage = "Não foi possivel encontrar o clima para essa região.";
-        this.loading = false;
       }
     });
   }
