@@ -13,6 +13,14 @@ const app = express();
 const angularApp = new AngularNodeAppEngine();
 
 /**
+ * Disable restrictive CSP for development
+ */
+app.use((req, res, next) => {
+  res.removeHeader('Content-Security-Policy');
+  next();
+});
+
+/**
  * Example Express Rest API endpoints can be defined here.
  * Uncomment and define endpoints as necessary.
  *

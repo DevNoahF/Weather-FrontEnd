@@ -10,7 +10,7 @@ import { weatherRequest } from '../models/weatherRequest';
     providedIn: 'root' 
 })
 export class weatherService{
-    // mudar url
+   
     private readonly API_URL = 'http://localhost:8080/weather' ;
 
     constructor(private http: HttpClient) {}
