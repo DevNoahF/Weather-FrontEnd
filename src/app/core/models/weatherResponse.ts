@@ -2,7 +2,7 @@ import { weatherDaysListResponse } from "./weatherDaysListResponse";
 
 export interface weatherResponse{
     
-    addres: string;
+    address: string;
     timezone: string;
     days: weatherDaysListResponse[];
 }
