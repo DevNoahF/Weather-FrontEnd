@@ -4,8 +4,9 @@
     <p class="address">{{ response()!.addres }} - {{ response()!.timezone }}</p>
 
     <div class="weather-cards">
-      @for (day of response()!.days; track day.datetime) {
+      @for (day of daysWithIcon(); track day.datetime) {
         <div class="weather-card">
+          <img class="weather-icon" [src]="day.iconUrl" [alt]="day.conditions" />
           <h3>{{ day.datetime }}</h3>
           <p class="condition">{{ day.conditions }}</p>
           <div class="temp-info">
