@@ -3,7 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { weatherResponse } from '../models/weatherResponse';
 import { weatherRequest } from '../models/weatherRequest';
-import { environment } from '../../../environments/environment.development';
+import { environment } from '../../../environments/environment';
 
 @Injectable({
   // Padrão singleton -> faz com que Service seja uma instancia unica.
@@ -30,8 +30,6 @@ export class weatherService {
       'Cache-Control': 'no-cache',
       Pragma: 'no-cache',
     });
-    // Add a cache-busting query param to ensure the backend is hit every time
-    const ts = Date.now();
     return this.http.post<weatherResponse>(this.url, body, { headers });
   }
 }
