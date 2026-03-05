@@ -89,3 +89,15 @@
 .weather-icon {
   font-size: 60px;
 }
+
+.resultado{
+    margin-bottom: 10px;
+    font-size: 2rem;
+    color: rgb(47, 66, 102);
+
+}
+
+.address {
+  font-size: 1.1rem;
+  color: #302c2d;
+}

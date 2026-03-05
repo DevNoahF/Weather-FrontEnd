@@ -1,7 +1,7 @@
 @if (response() && !loading()) {
   <div class="result-section">
-    <h2>Resultado</h2>
-    <p class="address">{{ response()!.addres }} - {{ response()!.timezone }}</p>
+    <h2 class="resultado">Resultado:</h2>
+    <p class="address">{{ response()!.address }}</p>
 
     <div class="weather-cards">
       @for (day of daysWithIcon(); track day.datetime) {
