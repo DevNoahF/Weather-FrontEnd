@@ -1,5 +1,11 @@
 @if (errorMessage()) {
   <div class="error-card">
-    <p>{{ errorMessage() }}</p>
+    <div class="error-icon-wrap">
+      <img src="/assets/error-icons/error-icon.png" alt="Erro" class="error-icon" />
+    </div>
+    <div class="error-texts">
+      <p class="error-title">Ops, algo deu errado</p>
+      <p class="error-message">{{ errorMessage() }}</p>
+    </div>
   </div>
 }
