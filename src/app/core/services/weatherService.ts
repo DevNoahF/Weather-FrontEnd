@@ -11,7 +11,7 @@ import { environment } from '../../../environments/environment';
   providedIn: 'root',
 })
 export class weatherService {
-  private url = environment.apiUrl;
+  private url = "https://consumingweatherapi.onrender.com/";
 
   constructor(private http: HttpClient) {}
 
