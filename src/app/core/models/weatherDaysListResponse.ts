@@ -5,5 +5,6 @@ export interface weatherDaysListResponse{
     temp: string;
     datetime: string;
     humidity: string;
+    icon : string;
     conditions: string;  
 }
