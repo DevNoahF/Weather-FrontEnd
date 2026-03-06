@@ -10,7 +10,7 @@ import { weatherRequest } from '../models/weatherRequest';
   providedIn: 'root',
 })
 export class weatherService {
-  private url = "https://consuming-weather-api.vercel.app/weather";
+  private url = "https://weatherbr.noahvf16.workers.dev";
 
   constructor(private http: HttpClient) {}
 
