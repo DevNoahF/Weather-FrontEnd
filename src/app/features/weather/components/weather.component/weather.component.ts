@@ -50,7 +50,7 @@ export class WeatherComponent {
     this.weatherService
       .getWeather(search)
       .pipe(
-        timeout({ first: 100000, with: () => throwError(() => new Error('timeout')) }),
+        timeout({ first: 10000, with: () => throwError(() => new Error('timeout')) }),
         catchError((err) => {
           console.error('Erro na requisição:', err);
           this.errorMessage = 'Não foi possivel encontrar o clima para essa região.';
