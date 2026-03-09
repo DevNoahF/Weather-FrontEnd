@@ -10,7 +10,7 @@ import { weatherRequest } from '../models/weatherRequest';
   providedIn: 'root',
 })
 export class weatherService {
-  private url = "https://consumingweatherapi.onrender.com";
+  private url = "https://consuming-weather-api.onrender.com";
 
   constructor(private http: HttpClient) {}
 
