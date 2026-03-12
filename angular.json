@@ -5,6 +5,7 @@
     "packageManager": "npm",
     "analytics": "a44238cb-571e-444e-acb6-38a261a70943"
   },
+  "defaultProject": "weatherAngular",
   "newProjectRoot": "projects",
   "projects": {
     "weatherAngular": {
