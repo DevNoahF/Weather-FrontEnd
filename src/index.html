@@ -1,13 +1,11 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
+  <meta http-equiv="Content-Security-Policy"
+content="connect-src 'self' https://consuming-weather-api.onrender.com https://consumingweatherbr.fly.dev">
   <meta charset="utf-8">
-  <meta http-equiv="Content-Security-Policy" 
-        content="default-src 'self'; 
-                 connect-src 'self' https://consuming-weather-api.onrender.com; 
-                 script-src 'self' 'unsafe-inline'; 
-                 style-src 'self' 'unsafe-inline';">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <title>Consuming Weather API</title>
+  <base href="/">
 </head>
 <body>
   <app-root></app-root>
