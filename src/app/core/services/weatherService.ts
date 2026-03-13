@@ -10,7 +10,7 @@ import { weatherRequest } from '../models/weatherRequest';
   providedIn: 'root',
 })
 export class weatherService {
-  private readonly url = "consumingweatherbr.netlify.app";
+  private readonly url = "https://consumingweatherbr.fly.dev";
 
   constructor(private http: HttpClient) {}
 
