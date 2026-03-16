@@ -3,11 +3,10 @@ import { weatherResponse } from '../../../../core/models/weatherResponse';
 import { weatherService } from '../../../../core/services/weatherService';
 import { FormsModule } from '@angular/forms';
 import { States } from './weather-states.enum';
-import { LoadingCardComponent } from '../loading-card.components/loading-card.components';
+import { LoadingCardComponent } from '../loading-card.component/loading-card.component';
 import { ErrorCardComponent } from '../error-card.component/error-card.component';
-import { ForecastCardComponent } from '../forecast-card.components/forecast-card.components';
+import { ForecastCardComponent } from '../forecast-card.component/forecast-card.component';
 import { catchError, finalize, timeout, of, throwError } from 'rxjs';
-
 @Component({
   selector: 'app-weather',
   imports: [FormsModule, LoadingCardComponent, ErrorCardComponent, ForecastCardComponent],
