@@ -1,0 +1,27 @@
+@if (response() && !loading()) {
+  <div class="obs-section">
+    <h2 class="obs-title">Condições Atuais:</h2>
+    
+    <div class="obs-grid">
+      <div class="obs-item">
+        <span class="obs-label">Temperatura:</span>
+        <span class="obs-value">{{ response()!.currentConditions.temp }}°C</span>
+      </div>
+      
+      <div class="obs-item">
+        <span class="obs-label">Sensação Térmica:</span>
+        <span class="obs-value">{{ response()!.currentConditions.feelslike }}°C</span>
+      </div>
+      
+      <div class="obs-item">
+        <span class="obs-label">Umidade:</span>
+        <span class="obs-value">{{ response()!.currentConditions.humidity }}%</span>
+      </div>
+      
+      <div class="obs-item">
+        <span class="obs-label">Vento:</span>
+        <span class="obs-value">{{ response()!.currentConditions.windspeed }} km/h</span>
+      </div>
+    </div>
+  </div>
+}
