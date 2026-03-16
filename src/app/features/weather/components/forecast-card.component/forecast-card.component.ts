@@ -5,8 +5,8 @@ import getWeatherIcon from '../../../../core/config/weather-icons.config';
 @Component({
   selector: 'app-forecast-card',
   imports: [],
-  templateUrl: './forecast-card.components.html',
-  styleUrl: './forecast-card.components.css',
+  templateUrl: './forecast-card.component.html',
+  styleUrl: './forecast-card.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ForecastCardComponent {
