@@ -10,7 +10,7 @@ import { weatherRequest } from '../models/weatherRequest';
   providedIn: 'root',
 })
 export class weatherService {
-  private readonly url = "https://consuming-weather-api.onrender.com";
+  private readonly url = "https://consuming-weather-api.onrender.com/api";
 
   constructor(private http: HttpClient) {}
 
