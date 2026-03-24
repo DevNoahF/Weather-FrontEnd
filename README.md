@@ -6,6 +6,8 @@ Uma aplicação moderna de previsão do tempo desenvolvida com **Angular 21**, q
 
 Weather FrontEnd é uma interface web responsiva que consome uma API de previsão do tempo. A aplicação permite que usuários consultem previsões meteorológicas para cidades específicas em um período determinado de 7 dias, com uma interface intuitiva e visualmente atraente.
 
+## Repositorio Backend
+https://github.com/DevNoahF/ConsumingWeatherApi
 
 ## 📦 Pré-requisitos
 
