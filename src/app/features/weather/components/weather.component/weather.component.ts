@@ -1,6 +1,7 @@
 import { ChangeDetectorRef, Component } from '@angular/core';
 import { weatherResponse } from '../../../../core/models/weatherResponse';
 import { weatherService } from '../../../../core/services/weatherService';
+import { FormatService } from '../../../../core/services/formatService';
 import { FormsModule } from '@angular/forms';
 import { States } from './weather-states.enum';
 import { LoadingCardComponent } from '../loading-card.component/loading-card.component';
@@ -28,12 +29,53 @@ export class WeatherComponent {
   loading: boolean = false;
   errorMessage: string = '';
 
+  minDate: string;
+  maxDate: string;
+
   constructor(
     private weatherService: weatherService,
     private cdr: ChangeDetectorRef,
-  ) {}
+    private formatService: FormatService,
+  ) {
+    this.minDate = this.formatService.getMinDate();
+    this.maxDate = this.formatService.getMaxDate();
+  }
+
+  onCityInput(event: Event): void {
+    const input = event.target as HTMLInputElement;
+    input.value = this.formatService.removeAccents(input.value);
+    this.InputCity = input.value;
+  }
+
+  validateDates(): boolean {
+    if (!this.inputInitialDate || !this.inputFinalDate) {
+      this.errorMessage = 'Por favor, preencha as datas de início e fim.';
+      return false;
+    }
+
+    if (!this.formatService.isDateInRange(this.inputInitialDate)) {
+      this.errorMessage = `A data inicial deve estar entre ${this.minDate} e ${this.maxDate}.`;
+      return false;
+    }
+
+    if (!this.formatService.isDateInRange(this.inputFinalDate)) {
+      this.errorMessage = `A data final deve estar entre ${this.minDate} e ${this.maxDate}.`;
+      return false;
+    }
+
+    if (!this.formatService.isValidDateRange(this.inputInitialDate, this.inputFinalDate)) {
+      this.errorMessage = 'A data inicial não pode ser maior que a data final.';
+      return false;
+    }
+
+    return true;
+  }
 
   getWeather() {
+    if (!this.validateDates()) {
+      return;
+    }
+
     this.loading = true;
     this.errorMessage = '';
     this.response = null;

@@ -1,57 +1,61 @@
 <div class="container">
   <h1>ConsumingWeather BR</h1>
 
- <div class="obs">
-  <img src="/assets/obs-icons/star-obs.png" alt="star0icon" class="obs-icon">
-  <h2>O servidor esta hospedado em um host free, as requisições podem demoram de 30s a 50s para serem mostradas na tela</h2>
-
-    
- </div>
+  <div class="obs">
+    <img src="/assets/obs-icons/star-obs.png" alt="star0icon" class="obs-icon" />
+    <h2>
+      O servidor esta hospedado em um host free, as requisições podem demoram de 30s a 50s para
+      serem mostradas na tela
+    </h2>
+  </div>
 
   <!-- TOP SECTION -->
   <div class="top-section">
-    
     <!-- Filters -->
     <div class="filter-card">
-      <input type="text" 
-         id="cidade" 
-         name="cidade" 
-         placeholder="Cidade" 
-         [(ngModel)]="InputCity">
+      <input
+        type="text"
+        id="cidade"
+        name="cidade"
+        placeholder="Cidade"
+        (input)="onCityInput($event)"
+        [(ngModel)]="InputCity"
+      />
 
-  <select 
-  id="estado" 
-  name="estado" 
-  [(ngModel)]="InputState">
-    @for (state of states; track state) {
-      <option [value]="state">{{ statesEnum[state] }}</option>
-    }
-  </select>
+      <select id="estado" name="estado" [(ngModel)]="InputState">
+        @for (state of states; track state) {
+          <option [value]="state">{{ statesEnum[state] }}</option>
+        }
+      </select>
 
-  <input 
-  type="date" 
-  id="dataInicio" 
-  name="dataInicio" [(ngModel)]="inputInitialDate">
-  
-  <input 
-  type="date" 
-  id="dataFim" 
-  name="dataFim" [(ngModel)]="inputFinalDate">
+      <input
+        type="date"
+        id="dataInicio"
+        name="dataInicio"
+        [min]="minDate"
+        [max]="maxDate"
+        [(ngModel)]="inputInitialDate"
+      />
 
-  <button (click)="getWeather()"
-    >Buscar</button>
+      <input
+        type="date"
+        id="dataFim"
+        name="dataFim"
+        [min]="minDate"
+        [max]="maxDate"
+        [(ngModel)]="inputFinalDate"
+      />
 
-</div>
-
+      <button (click)="getWeather()">Buscar</button>
+    </div>
   </div>
 
   <!-- Loading -->
   <app-loading-card [isLoading]="loading" />
 
   <!-- Error -->
-  <app-error-card [errorMessage]="errorMessage" /> 
+  <app-error-card [errorMessage]="errorMessage" />
 
   <!-- Forecast Result -->
   <app-forecast-card [response]="response" [loading]="loading" />
-
 </div>
