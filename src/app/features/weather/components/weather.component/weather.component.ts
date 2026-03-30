@@ -43,8 +43,11 @@ export class WeatherComponent {
 
   onCityInput(event: Event): void {
     const input = event.target as HTMLInputElement;
-    input.value = this.formatService.removeAccents(input.value);
-    this.InputCity = input.value;
+    const cleaned = this.formatService.removeSpecialCharacters(
+      this.formatService.removeAccents(input.value),
+    );
+    input.value = cleaned;
+    this.InputCity = cleaned;
   }
 
   validateDates(): boolean {

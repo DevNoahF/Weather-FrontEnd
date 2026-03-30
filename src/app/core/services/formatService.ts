@@ -11,7 +11,11 @@ export class FormatService {
     if (!text) return text;
     return text.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
   }
-
+  
+  removeSpecialCharacters(text: string): string {
+    if (!text) return text;
+    return text.replace(/[^a-zA-Z0-9\s]/g, '');
+  }
   /**
    * Obtém a data mínima (hoje) no formato ISO
    */
